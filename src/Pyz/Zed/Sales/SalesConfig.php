@@ -56,6 +56,6 @@ class SalesConfig extends SprykerSalesConfig
      */
     public function isOldDeterminationForOrderItemProcessEnabled(): bool
     {
-        return false;
+        return '';
     }
 }
