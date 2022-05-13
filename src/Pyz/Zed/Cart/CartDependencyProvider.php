@@ -21,7 +21,9 @@ use Spryker\Zed\ConfigurableBundleCart\Communication\Plugin\Cart\ConfiguredBundl
 use Spryker\Zed\Discount\Communication\Plugin\Cart\DiscountQuoteChangeObserverPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\CartGroupPromotionItems;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\DiscountPromotionCartPreCheckPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\NonSplittablePromotionProductItemExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Merchant\Communication\Plugin\Cart\MerchantCartPreCheckPlugin;
 use Spryker\Zed\PaymentCartConnector\Communication\Plugin\Cart\RemovePaymentCartPostSavePlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\Cart\SanitizeSourcePricesQuoteLockPreResetPlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
@@ -108,6 +110,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new ConfiguredBundleGroupKeyItemExpanderPlugin(),
             new ProductUrlItemExpanderPlugin(),
             new SanitizeCartShipmentItemExpanderPlugin(),
+            new NonSplittablePromotionProductItemExpanderPlugin(),
         ];
     }
 
@@ -149,6 +152,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new ConfiguredBundleTemplateSlotCombinationPreCheckPlugin(),
             new ProductMeasurementSalesUnitCartPreCheckPlugin(),
             new DiscountPromotionCartPreCheckPlugin(),
+            new MerchantCartPreCheckPlugin(),
         ];
     }
 

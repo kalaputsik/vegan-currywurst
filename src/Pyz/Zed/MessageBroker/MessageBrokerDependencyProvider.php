@@ -18,6 +18,7 @@ use Spryker\Zed\MessageBrokerAws\Communication\Plugin\MessageBroker\Receiver\Aws
 use Spryker\Zed\MessageBrokerAws\Communication\Plugin\MessageBroker\Sender\AwsSnsMessageSenderPlugin;
 use Spryker\Zed\MessageBrokerAws\Communication\Plugin\MessageBroker\Sender\AwsSqsMessageSenderPlugin;
 use Spryker\Zed\MessageBrokerAws\Communication\Plugin\MessageBroker\Sender\HttpMessageSenderPlugin;
+use Spryker\Zed\OauthClient\Communication\Plugin\AccessTokenMessageAttributeProviderPlugin;
 use Spryker\Zed\OauthClient\Communication\Plugin\MessageBroker\AccessTokenMessageAttributeProviderPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentCancelReservationFailedMessageHandlerPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentConfirmationFailedMessageHandlerPlugin;
@@ -26,8 +27,8 @@ use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentMethodAddedMes
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentMethodDeletedMessageHandlerPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentPreauthorizationFailedMessageHandlerPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentPreauthorizedMessageHandlerPlugin;
-use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentRefundedMessageHandlerPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentRefundFailedMessageHandlerPlugin;
+use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentRefundedMessageHandlerPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentReservationCanceledMessageHandlerPlugin;
 use Spryker\Zed\StoreReference\Communication\Plugin\MessageBroker\StoreReferenceMessageAttributeProviderPlugin;
 use Spryker\Zed\StoreReference\Communication\Plugin\MessageBroker\StoreReferenceMessageValidatorPlugin;
@@ -87,6 +88,7 @@ class MessageBrokerDependencyProvider extends SprykerMessageBrokerDependencyProv
             new CorrelationIdMessageAttributeProviderPlugin(),
             new TimestampMessageAttributeProviderPlugin(),
             new StoreReferenceMessageAttributeProviderPlugin(),
+            new AccessTokenMessageAttributeProviderPlugin(),
             new AccessTokenMessageAttributeProviderPlugin(),
         ];
     }
