@@ -81,6 +81,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new PropelApplicationPlugin(),
             new BackendGatewayRouterApplicationPlugin(),
             new HttpApplicationPlugin(),
+            new SecurityApplicationPlugin(),
         ];
     }
 
