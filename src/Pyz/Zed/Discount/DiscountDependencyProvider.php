@@ -11,6 +11,7 @@ use Spryker\Zed\CategoryDiscountConnector\Communication\Plugin\Discount\Category
 use Spryker\Zed\CategoryDiscountConnector\Communication\Plugin\Discount\CategoryDiscountableItemCollectorPlugin;
 use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\DiscountPromotionDiscountVoucherApplyCheckerStrategyPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormDataExpanderPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormExpanderPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCleanerPostUpdatePlugin;
@@ -186,5 +187,14 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getStoreRelationFormTypePlugin(): FormTypeInterface
     {
         return new StoreRelationToggleFormTypePlugin();
+    }
+    /**
+     * @return array<\Spryker\Zed\DiscountExtension\Dependency\Plugin\DiscountVoucherApplyCheckerStrategyPluginInterface>
+     */
+    protected function getDiscountVoucherApplyCheckerStrategyPlugins() : array
+    {
+        return [
+            new DiscountPromotionDiscountVoucherApplyCheckerStrategyPlugin(),
+        ];
     }
 }
